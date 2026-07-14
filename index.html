@@ -1,0 +1,2052 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA Tech Software - Digital Marketing & Development Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --yellow: #facc15;
+            --yellow-light: #fde047;
+            --yellow-dim-10: rgba(250, 204, 21, 0.10);
+            --yellow-dim-20: rgba(250, 204, 21, 0.20);
+            --yellow-dim-30: rgba(250, 204, 21, 0.30);
+            --yellow-dim-60: rgba(250, 204, 21, 0.60);
+            --black: #000000;
+            --zinc-900: #18181b;
+            --zinc-950: #09090b;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --green-500: #22c55e;
+            --green-600: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HEADER ===== */
+        .site-header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--yellow-dim-30);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 25px rgba(250, 204, 21, 0.08);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-self: start;
+        }
+
+        .header-logo-box {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 24px;
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.2);
+            flex-shrink: 0;
+        }
+
+        .header-brand h1 {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .header-brand .tagline {
+            font-size: 9px;
+            color: var(--yellow);
+            margin-top: -4px;
+            letter-spacing: 0.2em;
+        }
+
+        .header-nav {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            font-size: 14px;
+            font-weight: 500;
+            justify-self: center;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #fff;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-self: end;
+            flex-shrink: 0;
+        }
+
+        .btn-pay-now {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            padding: 10px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-pay-now:hover {
+            background: var(--yellow);
+            color: var(--black);
+        }
+
+        .btn-quote {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 10px 12px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.1);
+        }
+
+        .btn-quote:hover {
+            background: var(--yellow-light);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
+                url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+            min-height: 78vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 64px 0;
+        }
+
+        .hero-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 8px 24px;
+            border-radius: 999px;
+            margin-bottom: 24px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 999px;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .hero-badge span {
+            font-size: 13px;
+            letter-spacing: 0.2em;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--yellow);
+        }
+
+        .hero-underline {
+            height: 3px;
+            width: 90px;
+            margin: 0 auto 24px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+        }
+
+        .hero-carousel {
+            position: relative;
+            height: 48px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-carousel-inner {
+            position: relative;
+            width: 100%;
+            max-width: 896px;
+            margin: 0 auto;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--yellow);
+        }
+
+        .hero-service {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left: 0;
+        }
+
+        .hero-service.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-sub {
+            max-width: 640px;
+            margin: 0 auto 32px;
+            font-size: 16px;
+            color: var(--gray-300);
+        }
+
+        .hero-cta-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .btn-whatsapp {
+            background: var(--green-500);
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 16px 32px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.1);
+        }
+
+        .btn-whatsapp i {
+            font-size: 20px;
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--green-600);
+            transform: scale(1.03);
+        }
+
+        .trust-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .trust-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            border-radius: 999px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .trust-pill i {
+            color: var(--yellow);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .scroll-indicator p {
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            margin: 0 0 8px;
+        }
+
+        .scroll-box {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--yellow);
+            border-radius: 999px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scroll-box .scroll-dot {
+            width: 4px;
+            height: 8px;
+            background: var(--yellow);
+            border-radius: 999px;
+            margin-top: 8px;
+            animation: bounce 1.4s infinite;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 80px 0;
+            background: var(--zinc-950);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-glow {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: rgba(250, 204, 21, 0.05);
+            border-radius: 999px;
+            filter: blur(90px);
+            transform: translate(33%, -33%);
+            pointer-events: none;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 56px;
+            align-items: center;
+            position: relative;
+        }
+
+        .about-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--yellow-dim-60);
+            color: var(--yellow);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            padding: 8px 20px;
+            border-radius: 999px;
+            margin-bottom: 28px;
+        }
+
+        .about-eyebrow .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--yellow);
+            border-radius: 999px;
+        }
+
+        .about h2 {
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 1.15;
+            margin: 0 0 28px;
+        }
+
+        .about h2 .accent {
+            color: var(--yellow);
+            font-style: italic;
+        }
+
+        .about p.lead {
+            font-size: 16px;
+            color: var(--gray-400);
+            line-height: 1.7;
+            border-left: 2px solid var(--yellow-dim-30);
+            padding-left: 24px;
+            margin: 0;
+        }
+
+        .about-stats {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .about-stat {
+            border-top: 1px solid var(--yellow-dim-20);
+            padding-top: 16px;
+        }
+
+        .about-stat .num {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--yellow);
+        }
+
+        .about-stat .label {
+            font-size: 12px;
+            color: var(--gray-500);
+            letter-spacing: 0.03em;
+            margin-top: 4px;
+        }
+
+        .about-media {
+            position: relative;
+        }
+
+        .about-media-frame {
+            position: absolute;
+            inset: -8px;
+            border: 1px solid var(--yellow-dim-20);
+            border-radius: 24px;
+            pointer-events: none;
+        }
+
+        .about-media img {
+            border-radius: 24px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            width: 100%;
+        }
+
+        .about-badge-card {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background: var(--black);
+            border: 1px solid var(--yellow);
+            padding: 24px;
+            border-radius: 24px;
+            max-width: 280px;
+            box-shadow: 0 20px 40px rgba(250, 204, 21, 0.1);
+        }
+
+        .about-badge-card .inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .about-badge-card .emoji {
+            font-size: 48px;
+        }
+
+        .about-badge-card .title {
+            font-weight: 600;
+        }
+
+        .about-badge-card .sub {
+            color: var(--yellow);
+            font-size: 14px;
+        }
+
+        /* ===== TECH SECTION ===== */
+        .tech-section {
+            padding: 80px 0;
+            background: var(--black);
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-head h2 {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
+
+        .section-head p {
+            color: var(--gray-400);
+            margin: 0;
+        }
+
+        .tech-grid {
+            display: none;
+        }
+
+        .tech-card {
+            background: var(--zinc-900);
+            padding: 24px;
+            border-radius: 24px;
+            text-align: center;
+            transition: background 0.25s ease;
+        }
+
+        .tech-card:hover {
+            background: #232326;
+        }
+
+        .tech-card i {
+            font-size: 36px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .tech-card .label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .tech-marquee-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .tech-marquee {
+            display: inline-flex;
+            gap: 24px;
+            animation: marquee 22s linear infinite;
+        }
+
+        .tech-card-sm {
+            flex-shrink: 0;
+            width: 128px;
+            background: var(--zinc-900);
+            padding: 24px;
+            border-radius: 24px;
+            text-align: center;
+            margin: 0 8px;
+        }
+
+        .tech-card-sm i {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .tech-card-sm .label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .c-wordpress {
+            color: #2563eb;
+        }
+
+        .c-shopify {
+            color: #10b981;
+        }
+
+        .c-react {
+            color: #38bdf8;
+        }
+
+        .c-node {
+            color: #22c55e;
+        }
+
+        .c-flutter {
+            color: #60a5fa;
+        }
+
+        .c-php {
+            color: #818cf8;
+        }
+
+        .c-laravel {
+            color: #fb923c;
+        }
+
+        .c-python {
+            color: #fde047;
+        }
+
+        .c-ai {
+            color: #f472b6;
+        }
+
+        .c-google {
+            color: var(--yellow);
+        }
+
+        .c-emerald {
+            color: #34d399;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 80px 0;
+            background: var(--zinc-950);
+        }
+
+        .services-eyebrow {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 8px 24px;
+            border-radius: 24px;
+            margin-bottom: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--zinc-900);
+            border: 1px solid var(--yellow-dim-10);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgba(250, 204, 21, 0.2);
+        }
+
+        .service-icon {
+            height: 56px;
+            width: 56px;
+            background: var(--yellow-dim-10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            font-size: 28px;
+            transition: transform 0.25s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 0 0 12px;
+        }
+
+        .service-card p {
+            color: var(--gray-400);
+            margin: 0 0 32px;
+            flex: 1 1 auto;
+        }
+
+        .service-link {
+            color: var(--yellow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            padding: 0;
+            transition: gap 0.25s ease;
+        }
+
+        .service-link:hover {
+            gap: 12px;
+        }
+
+        /* ===== ACHIEVEMENTS ===== */
+        .achievements {
+            padding: 80px 0;
+            background: var(--black);
+        }
+
+        .ach-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--yellow);
+        }
+
+        .ach-grid .stat-label {
+            color: var(--yellow);
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        /* ===== PARTNERS ===== */
+        .partners {
+            padding: 80px 0;
+            background: var(--zinc-950);
+            overflow: hidden;
+        }
+
+        .partners h2 {
+            text-align: center;
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 48px;
+        }
+
+        .partners-marquee-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
+        .partners-marquee {
+            display: inline-flex;
+            gap: 64px;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            opacity: 0.7;
+            animation: marquee 30s linear infinite;
+        }
+
+        .partners-marquee>div {
+            flex-shrink: 0;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--black);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 64px;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .testi-card {
+            background: var(--zinc-900);
+            padding: 32px;
+            border-radius: 24px;
+        }
+
+        .testi-card .stars {
+            color: var(--yellow);
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .testi-card .quote {
+            font-style: italic;
+            margin: 0 0 32px;
+            line-height: 1.6;
+        }
+
+        .testi-card .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testi-card .avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--gray-700);
+            border-radius: 16px;
+        }
+
+        .testi-card .name {
+            font-weight: 600;
+        }
+
+        .testi-card .role {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: 80px 0;
+            background: var(--zinc-950);
+        }
+
+        .faq-container {
+            max-width: 896px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .faq h2 {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 0 64px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background: var(--black);
+            border: 1px solid var(--yellow-dim-20);
+            border-radius: 24px;
+            padding: 32px;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            font-size: 18px;
+            margin: 0 0 12px;
+        }
+
+        .faq-item .a {
+            color: var(--gray-400);
+            margin: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .site-footer {
+            background: var(--black);
+            border-top: 1px solid var(--yellow-dim-30);
+            padding: 56px 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-box {
+            width: 44px;
+            height: 44px;
+            background: var(--yellow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-weight: 700;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .footer-brand .name {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .footer-about p {
+            color: var(--gray-400);
+            max-width: 384px;
+            font-size: 14px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .footer-socials {
+            margin-top: 24px;
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+        }
+
+        .footer-socials i {
+            cursor: pointer;
+            transition: color 0.25s ease;
+        }
+
+        .footer-socials i:hover {
+            color: var(--yellow);
+        }
+
+        .footer-col h4 {
+            font-weight: 600;
+            margin: 0 0 16px;
+            color: var(--yellow);
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        .footer-links>div,
+        .footer-links>a {
+            cursor: pointer;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links>div:hover,
+        .footer-links>a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-pay-footer {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            color: var(--black);
+            font-weight: 700;
+            padding: 14px 24px;
+            border-radius: 16px;
+            font-size: 14px;
+            box-shadow: 0 12px 24px rgba(250, 204, 21, 0.2);
+            transition: all 0.25s ease;
+        }
+
+        .btn-pay-footer:hover {
+            background: var(--yellow-light);
+            transform: scale(1.05);
+        }
+
+        .btn-pay-footer i {
+            font-size: 12px;
+            transition: transform 0.25s ease;
+        }
+
+        .btn-pay-footer:hover i {
+            transform: translateX(4px);
+        }
+
+        .footer-pay-note {
+            color: var(--gray-500);
+            font-size: 12px;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 12px;
+            color: var(--gray-500);
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-bottom p {
+            margin: 2px 0;
+        }
+
+        /* ===== CONTACT MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--zinc-900);
+            max-width: 512px;
+            width: 100%;
+            margin: 0 16px;
+            border-radius: 24px;
+            padding: 40px;
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .modal-head h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-close {
+            font-size: 28px;
+            line-height: 1;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .modal-form input,
+        .modal-form textarea {
+            width: 100%;
+            background: var(--black);
+            border: 1px solid var(--yellow-dim-30);
+            border-radius: 16px;
+            padding: 18px 24px;
+            outline: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.2s ease;
+        }
+
+        .modal-form textarea {
+            border-radius: 24px;
+            resize: none;
+        }
+
+        .modal-form input:focus,
+        .modal-form textarea:focus {
+            border-color: var(--yellow);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--yellow);
+            color: var(--black);
+            font-weight: 600;
+            padding: 22px;
+            border-radius: 24px;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.25s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--yellow-light);
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .wa-float {
+            position: fixed;
+            bottom: 16px;
+            right: 16px;
+            z-index: 999;
+        }
+
+        .wa-float-circle {
+            width: 56px;
+            height: 56px;
+            background: var(--green-500);
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .wa-float-circle:hover {
+            background: var(--green-600);
+            transform: scale(1.1);
+        }
+
+        .wa-float-circle i {
+            font-size: 30px;
+            color: #fff;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(6px);
+            }
+        }
+
+        /* ===== RESPONSIVE: sm 640px+ ===== */
+        @media (min-width: 640px) {
+            .header-inner {
+                padding: 20px 24px;
+            }
+
+            .header-logo-box {
+                width: 48px;
+                height: 48px;
+                font-size: 30px;
+            }
+
+            .header-brand h1 {
+                font-size: 30px;
+            }
+
+            .header-brand .tagline {
+                font-size: 10px;
+            }
+
+            .btn-pay-now,
+            .btn-quote {
+                padding: 12px 24px;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-carousel {
+                height: 64px;
+            }
+
+            .hero-carousel-inner {
+                font-size: 20px;
+            }
+
+            .hero-sub {
+                font-size: 18px;
+            }
+
+            .btn-whatsapp {
+                font-size: 18px;
+                padding: 20px 40px;
+            }
+
+            .btn-whatsapp i {
+                font-size: 22px;
+            }
+
+            .trust-strip {
+                gap: 20px;
+            }
+
+            .scroll-indicator {
+                display: flex;
+            }
+
+            .section-head h2 {
+                font-size: 36px;
+            }
+
+            .about h2 {
+                font-size: 36px;
+            }
+
+            .about-stat .num {
+                font-size: 34px;
+            }
+
+            .about-stat .label {
+                font-size: 13px;
+            }
+
+            .ach-grid {
+                gap: 40px;
+            }
+
+            .stat-number {
+                font-size: 44px;
+            }
+
+            .partners h2 {
+                font-size: 32px;
+            }
+
+            .partners-marquee {
+                font-size: 32px;
+            }
+
+            .testimonials h2 {
+                font-size: 36px;
+            }
+
+            .faq h2 {
+                font-size: 36px;
+            }
+
+            .footer-logo-box {
+                width: 44px;
+                height: 44px;
+            }
+
+            .wa-float {
+                bottom: 22px;
+                right: 22px;
+            }
+
+            .wa-float-circle {
+                width: 64px;
+                height: 64px;
+            }
+
+            .wa-float-circle i {
+                font-size: 34px;
+            }
+        }
+
+        /* ===== RESPONSIVE: md 768px+ ===== */
+        @media (min-width: 768px) {
+            .header-inner {
+                grid-template-columns: 1fr auto 1fr;
+            }
+
+            .header-nav {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero-carousel {
+                height: 80px;
+            }
+
+            .hero-carousel-inner {
+                font-size: 30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+
+            .about h2 {
+                font-size: 44px;
+            }
+
+            .tech-grid {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                gap: 32px;
+            }
+
+            .tech-marquee-wrap {
+                display: none;
+            }
+
+            .tech-card {
+                padding: 32px;
+            }
+
+            .tech-card i {
+                font-size: 44px;
+            }
+
+            .tech-card .label {
+                font-size: 15px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ach-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .testi-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .footer-brand-col {
+                grid-column: span 2;
+            }
+        }
+
+        /* ===== RESPONSIVE: lg 1024px+ ===== */
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 68px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-brand">
+                <div class="header-logo-box">R</div>
+                <div>
+                    <h1 class="heading-font">RSA Tech</h1>
+                    <p class="tagline">SOFTWARE</p>
+                </div>
+            </div>
+
+            <nav class="header-nav">
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#partners" class="nav-link">Partners</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Pay Now: update href below with your payment gateway link -->
+                <a id="pay-now-link" href="#" class="btn-pay-now">
+                    <span>Pay Now</span>
+                </a>
+                <button class="btn-quote" onclick="openModal()">Get Quote</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">
+                <div class="dot"></div>
+                <span>INDIA'S PREMIUM DIGITAL AGENCY</span>
+            </div>
+
+            <h1 class="heading-font">
+                DIGITAL SUCCESS<br>STARTS WITH <span class="accent">RSA TECH SOFTWARE</span>
+            </h1>
+
+            <div class="hero-underline"></div>
+
+            <div class="hero-carousel">
+                <div class="hero-carousel-inner" id="service-carousel">
+                    <div class="hero-service active" id="service-1">Web Development</div>
+                    <div class="hero-service" id="service-2">App Development</div>
+                    <div class="hero-service" id="service-3">Google Ads</div>
+                    <div class="hero-service" id="service-4">Meta Ads</div>
+                    <div class="hero-service" id="service-5">SEO</div>
+                    <div class="hero-service" id="service-6">Video Editing</div>
+                    <div class="hero-service" id="service-7">UGC Video</div>
+                    <div class="hero-service" id="service-8">Graphics Designing</div>
+                </div>
+            </div>
+
+            <p class="hero-sub">End-to-end digital solutions that drive real business growth</p>
+
+            <div class="hero-cta-wrap">
+                <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    CHAT ON WHATSAPP
+                </a>
+            </div>
+
+            <div class="trust-strip">
+                <div class="trust-pill"><i class="fas fa-shield-halved"></i><span>Trusted Since 2017</span></div>
+                <div class="trust-pill"><i class="fas fa-star"></i><span>4.9/5 Client Rating</span></div>
+                <div class="trust-pill"><i class="fas fa-briefcase"></i><span>120+ Projects Delivered</span></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <p>SCROLL TO EXPLORE</p>
+            <div class="scroll-box">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section id="about" class="about">
+        <div class="about-glow"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <div class="about-eyebrow"><span class="dot"></span>WHO WE ARE</div>
+                    <h2 class="heading-font">We build digital experiences that <span class="accent">convert</span></h2>
+                    <p class="lead">
+                        RSA Tech Software is a full-service digital agency specializing in creating powerful online
+                        presence for businesses. From stunning websites and mobile apps to result-driven advertising
+                        campaigns, we deliver end-to-end digital solutions.
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="num heading-font">50+</div>
+                            <div class="label">Happy Clients</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="num heading-font">120+</div>
+                            <div class="label">Projects</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="num heading-font">8</div>
+                            <div class="label">Years Exp.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-media">
+                    <div class="about-media-frame"></div>
+                    <img src="https://picsum.photos/id/1016/800/900" alt="Team">
+                    <div class="about-badge-card">
+                        <div class="inner">
+                            <div class="emoji">⭐</div>
+                            <div>
+                                <div class="title">Trusted by leading brands</div>
+                                <div class="sub">Since 2017</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-head">
+                <h2 class="heading-font">Technologies We Master</h2>
+                <p>Cutting-edge tools for modern solutions</p>
+            </div>
+
+            <!-- Desktop / Tablet Grid -->
+            <div class="tech-grid">
+                <div class="tech-card"><i class="fab fa-wordpress c-wordpress"></i>
+                    <div class="label">WordPress</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-shopify c-shopify"></i>
+                    <div class="label">Shopify</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-react c-react"></i>
+                    <div class="label">React / Next.js</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-node-js c-node"></i>
+                    <div class="label">Node.js</div>
+                </div>
+                <div class="tech-card"><i class="fas fa-mobile-alt c-flutter"></i>
+                    <div class="label">Flutter / RN</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-php c-php"></i>
+                    <div class="label">PHP</div>
+                </div>
+                <div class="tech-card"><i class="fas fa-laptop-code c-laravel"></i>
+                    <div class="label">Laravel</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-python c-python"></i>
+                    <div class="label">Python</div>
+                </div>
+                <div class="tech-card"><i class="fas fa-brain c-ai"></i>
+                    <div class="label">AI / ML</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-google c-google"></i>
+                    <div class="label">Google Ads</div>
+                </div>
+                <div class="tech-card"><i class="fab fa-meta"></i>
+                    <div class="label">Meta Ads</div>
+                </div>
+                <div class="tech-card"><i class="fas fa-chart-line c-emerald"></i>
+                    <div class="label">SEO Tools</div>
+                </div>
+            </div>
+
+            <!-- Mobile Auto Carousel -->
+            <div class="tech-marquee-wrap">
+                <div class="tech-marquee" id="tech-marquee">
+                    <div class="tech-card-sm"><i class="fab fa-wordpress c-wordpress"></i>
+                        <div class="label">WordPress</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-shopify c-shopify"></i>
+                        <div class="label">Shopify</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-react c-react"></i>
+                        <div class="label">React/Next</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-node-js c-node"></i>
+                        <div class="label">Node.js</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-mobile-alt c-flutter"></i>
+                        <div class="label">Flutter/RN</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-php c-php"></i>
+                        <div class="label">PHP</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-laptop-code c-laravel"></i>
+                        <div class="label">Laravel</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-python c-python"></i>
+                        <div class="label">Python</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-brain c-ai"></i>
+                        <div class="label">AI / ML</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-google c-google"></i>
+                        <div class="label">Google Ads</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-meta"></i>
+                        <div class="label">Meta Ads</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-chart-line c-emerald"></i>
+                        <div class="label">SEO Tools</div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="tech-card-sm"><i class="fab fa-wordpress c-wordpress"></i>
+                        <div class="label">WordPress</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-shopify c-shopify"></i>
+                        <div class="label">Shopify</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-react c-react"></i>
+                        <div class="label">React/Next</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-node-js c-node"></i>
+                        <div class="label">Node.js</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-mobile-alt c-flutter"></i>
+                        <div class="label">Flutter/RN</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-php c-php"></i>
+                        <div class="label">PHP</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-laptop-code c-laravel"></i>
+                        <div class="label">Laravel</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-python c-python"></i>
+                        <div class="label">Python</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-brain c-ai"></i>
+                        <div class="label">AI / ML</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-google c-google"></i>
+                        <div class="label">Google Ads</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fab fa-meta"></i>
+                        <div class="label">Meta Ads</div>
+                    </div>
+                    <div class="tech-card-sm"><i class="fas fa-chart-line c-emerald"></i>
+                        <div class="label">SEO Tools</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-head">
+                <div class="services-eyebrow">OUR EXPERTISE</div>
+                <h2 class="heading-font">Services That Drive Growth</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Website Development</h3>
+                    <p>Custom, fast, and conversion-focused websites that represent your brand perfectly.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('Website Development')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>App Development</h3>
+                    <p>Native & cross-platform mobile applications for iOS and Android.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('App Development')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Google Ads</h3>
+                    <p>Pay-per-click campaigns on Google Search & Display Network.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('Google Ads')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📢</div>
+                    <h3>Meta Ads</h3>
+                    <p>Facebook & Instagram advertising campaigns that deliver ROI.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('Meta Ads')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Search Engine Optimization</h3>
+                    <p>Rank higher on Google and drive organic traffic.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('SEO Services')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎥</div>
+                    <h3>Video Editing</h3>
+                    <p>Professional video editing for social media and marketing.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('Video Editing')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3>UGC Video</h3>
+                    <p>Authentic user-generated content videos that build trust.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('UGC Video')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Graphics Designing</h3>
+                    <p>Branding, social media creatives and professional design solutions.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('Graphics Designing')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🖌️</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Intuitive, user-centered interfaces that improve engagement and conversions.</p>
+                    <button class="service-link" onclick="whatsappEnquiry('UI/UX Design')">Enquire on WhatsApp <i
+                            class="fab fa-whatsapp"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <div class="ach-grid">
+                <div>
+                    <div class="stat-number" data-target="120">0</div>
+                    <p class="stat-label">Projects Completed</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="85">0</div>
+                    <p class="stat-label">% Client Retention</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="45">0</div>
+                    <p class="stat-label">Cities Served</p>
+                </div>
+                <div>
+                    <div class="stat-number" data-target="12">0</div>
+                    <p class="stat-label">Industry Verticals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" class="partners">
+        <div class="container">
+            <h2 class="heading-font">Our Trusted Partners</h2>
+            <div class="partners-marquee-wrap">
+                <div class="partners-marquee">
+                    <div>Google</div>
+                    <div>Meta</div>
+                    <div>Shopify</div>
+                    <div>AWS</div>
+                    <div>Adobe</div>
+                    <div>Canva</div>
+                    <div>WordPress</div>
+                    <div>Laravel</div>
+                    <div>Google</div>
+                    <div>Meta</div>
+                    <div>Shopify</div>
+                    <div>AWS</div>
+                    <div>Adobe</div>
+                    <div>Canva</div>
+                    <div>WordPress</div>
+                    <div>Laravel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="heading-font">What Our Clients Say</h2>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"RSA Tech transformed our online presence completely. Our leads increased by 340%
+                        in just 3 months!"</p>
+                    <div class="author">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="name">Rahul Sharma</div>
+                            <div class="role">Founder, FitLife Gym</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"The best digital agency we've worked with. Professional, creative and most
+                        importantly - result oriented."</p>
+                    <div class="author">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="name">Priya Malhotra</div>
+                            <div class="role">CEO, Luxe Fashion</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testi-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Their UGC video content strategy helped us scale our Instagram presence
+                        beautifully."</p>
+                    <div class="author">
+                        <div class="avatar"></div>
+                        <div>
+                            <div class="name">Aman Khan</div>
+                            <div class="role">Marketing Head, TechNova</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2 class="heading-font">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="q">How long does it take to build a website?</div>
+                    <p class="a">Typically 4-8 weeks depending on the complexity. We follow agile methodology with
+                        regular updates.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="q">Do you provide monthly ad management?</div>
+                    <p class="a">Yes. We offer complete campaign management with detailed monthly reports.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="q">What is your payment structure?</div>
+                    <p class="a">We work with milestone-based payments to ensure transparency and client satisfaction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col footer-about">
+                    <div class="footer-brand">
+                        <div class="footer-logo-box">R</div>
+                        <div class="name heading-font">RSA Tech Software</div>
+                    </div>
+                    <p>Your complete digital growth partner. From idea to execution — we make it happen.</p>
+                    <div class="footer-socials">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <div class="footer-links">
+                        <div>Home</div>
+                        <div>Services</div>
+                        <div>Portfolio</div>
+                        <div>Contact</div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>SERVICES</h4>
+                    <div class="footer-links">
+                        <div>Web Development</div>
+                        <div>App Development</div>
+                        <div>Google & Meta Ads</div>
+                        <div>SEO</div>
+                        <div>Video Editing</div>
+                        <div>UI/UX Design</div>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <div class="footer-links">
+                        <div class="footer-contact-row">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/919876543210">+91 98765 43210</a>
+                        </div>
+                        <div>hello@rsatech.in</div>
+                        <div>New Delhi, India</div>
+                    </div>
+                </div>
+
+                <!-- Highlighted Pay Now -->
+                <div class="footer-col">
+                    <h4>PAYMENTS</h4>
+                    <a id="custom-footer-link" href="#" class="btn-pay-footer">
+                        Pay Now
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <p class="footer-pay-note">Secure, quick payments for your ongoing project.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 RSA Tech Software. All Rights Reserved.</p>
+                <p>Powered by Shri Ram Puja</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h3>Let's Build Something Great</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+
+            <div class="modal-form">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="tel" id="phone" placeholder="Phone Number">
+                <textarea id="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                <button class="btn-submit" onclick="submitEnquiry()">SEND MESSAGE ON WHATSAPP</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP ICON -->
+    <a href="https://wa.me/919876543210" target="_blank" aria-label="Chat on WhatsApp" class="wa-float">
+        <div class="wa-float-circle"><i class="fab fa-whatsapp"></i></div>
+    </a>
+
+    <script>
+        // Hero Service Carousel
+        let currentService = 1;
+        const totalServices = 8;
+
+        function rotateServices() {
+            const services = document.querySelectorAll('.hero-service');
+            services.forEach(s => s.classList.remove('active'));
+            document.getElementById(`service-${currentService}`).classList.add('active');
+            currentService = currentService >= totalServices ? 1 : currentService + 1;
+        }
+
+        setInterval(rotateServices, 2200);
+
+        function whatsappEnquiry(service) {
+            const message = `Hello RSA Tech! I want to enquire about ${service}.`;
+            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        function openModal() {
+            document.getElementById('contact-modal').classList.add('open');
+        }
+
+        function closeModal() {
+            document.getElementById('contact-modal').classList.remove('open');
+        }
+
+        function submitEnquiry() {
+            const name = document.getElementById('name').value || "Client";
+            const message = `Hello! My name is ${name}. ${document.getElementById('message').value || "I would like to discuss a project."}`;
+            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+            closeModal();
+        }
+
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                let count = 0;
+                const increment = target / 60;
+
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        counter.textContent = target + (target === 85 ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(count) + (target === 85 ? '%' : '+');
+                    }
+                }, 30);
+            });
+        }
+
+        let countersAnimated = false;
+        window.addEventListener('scroll', () => {
+            if (!countersAnimated && window.scrollY > 800) {
+                animateCounters();
+                countersAnimated = true;
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") closeModal();
+        });
+
+        console.log('%c✅ RSA Tech Landing Page Loaded Successfully', 'color: #facc15; font-size: 14px; font-weight: bold');
+    </script>
+</body>
+
+</html>
