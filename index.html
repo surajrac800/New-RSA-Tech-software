@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSA Tech Software - Digital Marketing & Development Agency</title>
+    <title>RSA Tech Softwares - Digital Marketing & Development Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
@@ -41,11 +41,23 @@
             background: var(--black);
             color: #ffffff;
             overflow-x: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        input,
+        textarea {
+            -webkit-user-select: text;
+            user-select: text;
         }
 
         img {
             max-width: 100%;
             display: block;
+            -webkit-user-drag: none;
+            pointer-events: none;
         }
 
         a {
@@ -96,8 +108,8 @@
         }
 
         .header-logo-box {
-            width: 40px;
-            height: 40px;
+            width: 52px;
+            height: 52px;
             background: linear-gradient(135deg, var(--yellow-light), var(--yellow));
             border-radius: 16px;
             display: flex;
@@ -108,20 +120,15 @@
             font-size: 24px;
             box-shadow: 0 8px 20px rgba(250, 204, 21, 0.2);
             flex-shrink: 0;
+            overflow: hidden;
         }
 
-        .header-brand h1 {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 0;
-        }
-
-        .header-brand .tagline {
-            font-size: 9px;
-            color: var(--yellow);
-            margin-top: -4px;
-            letter-spacing: 0.2em;
+        .header-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            pointer-events: auto;
         }
 
         .header-nav {
@@ -205,14 +212,14 @@
         .hero {
             background:
                 linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
-                url('https://picsum.photos/id/1015/2000/1200');
+                url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             min-height: 78vh;
             display: flex;
             align-items: center;
             position: relative;
-            padding: 64px 0;
+            padding: 48px 0;
         }
 
         .hero-inner {
@@ -309,12 +316,12 @@
         .hero-cta-wrap {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin-bottom: 16px;
         }
 
-        .btn-whatsapp {
-            background: var(--green-500);
-            color: #fff;
+        .btn-hero-quote {
+            background: var(--yellow);
+            color: var(--black);
             font-weight: 600;
             font-size: 16px;
             padding: 16px 32px;
@@ -324,39 +331,18 @@
             justify-content: center;
             gap: 12px;
             transition: all 0.25s ease;
-            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.1);
+            box-shadow: 0 12px 24px rgba(250, 204, 21, 0.2);
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-whatsapp i {
-            font-size: 20px;
+        .btn-hero-quote i {
+            font-size: 18px;
         }
 
-        .btn-whatsapp:hover {
-            background: var(--green-600);
+        .btn-hero-quote:hover {
+            background: var(--yellow-light);
             transform: scale(1.03);
-        }
-
-        .trust-strip {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .trust-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(8px);
-            border-radius: 999px;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-        }
-
-        .trust-pill i {
-            color: var(--yellow);
         }
 
         .scroll-indicator {
@@ -395,7 +381,7 @@
 
         /* ===== ABOUT ===== */
         .about {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--zinc-950);
             position: relative;
             overflow: hidden;
@@ -491,6 +477,7 @@
 
         .about-media {
             position: relative;
+            margin-bottom: 64px;
         }
 
         .about-media-frame {
@@ -509,14 +496,13 @@
         }
 
         .about-badge-card {
-            position: absolute;
-            bottom: -24px;
-            left: -24px;
+            position: relative;
+            margin: -40px 16px 0;
             background: var(--black);
             border: 1px solid var(--yellow);
-            padding: 24px;
+            padding: 20px;
             border-radius: 24px;
-            max-width: 280px;
+            max-width: none;
             box-shadow: 0 20px 40px rgba(250, 204, 21, 0.1);
         }
 
@@ -527,7 +513,7 @@
         }
 
         .about-badge-card .emoji {
-            font-size: 48px;
+            font-size: 40px;
         }
 
         .about-badge-card .title {
@@ -541,13 +527,13 @@
 
         /* ===== TECH SECTION ===== */
         .tech-section {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--black);
         }
 
         .section-head {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 32px;
         }
 
         .section-head h2 {
@@ -622,53 +608,21 @@
             font-size: 14px;
         }
 
-        .c-wordpress {
-            color: #2563eb;
-        }
-
-        .c-shopify {
-            color: #10b981;
-        }
-
-        .c-react {
-            color: #38bdf8;
-        }
-
-        .c-node {
-            color: #22c55e;
-        }
-
-        .c-flutter {
-            color: #60a5fa;
-        }
-
-        .c-php {
-            color: #818cf8;
-        }
-
-        .c-laravel {
-            color: #fb923c;
-        }
-
-        .c-python {
-            color: #fde047;
-        }
-
-        .c-ai {
-            color: #f472b6;
-        }
-
-        .c-google {
-            color: var(--yellow);
-        }
-
-        .c-emerald {
-            color: #34d399;
-        }
+        .c-wordpress { color: #2563eb; }
+        .c-shopify { color: #10b981; }
+        .c-react { color: #38bdf8; }
+        .c-node { color: #22c55e; }
+        .c-flutter { color: #60a5fa; }
+        .c-php { color: #818cf8; }
+        .c-laravel { color: #fb923c; }
+        .c-python { color: #fde047; }
+        .c-ai { color: #f472b6; }
+        .c-google { color: var(--yellow); }
+        .c-emerald { color: #34d399; }
 
         /* ===== SERVICES ===== */
         .services {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--zinc-950);
         }
 
@@ -696,6 +650,8 @@
             padding: 32px;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            text-align: center;
             height: 100%;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -705,21 +661,13 @@
             box-shadow: 0 25px 50px -12px rgba(250, 204, 21, 0.2);
         }
 
-        .service-icon {
-            height: 56px;
-            width: 56px;
-            background: var(--yellow-dim-10);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .service-infographic {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
             border-radius: 16px;
             margin-bottom: 24px;
-            font-size: 28px;
-            transition: transform 0.25s ease;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
+            background: var(--zinc-950);
         }
 
         .service-card h3 {
@@ -735,25 +683,30 @@
         }
 
         .service-link {
-            color: var(--yellow);
+            background: var(--yellow);
+            color: var(--black);
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            background: none;
             border: none;
             cursor: pointer;
             font-size: 15px;
-            padding: 0;
-            transition: gap 0.25s ease;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 16px;
+            margin: 0 auto;
+            transition: background 0.25s ease, transform 0.25s ease;
         }
 
         .service-link:hover {
-            gap: 12px;
+            background: var(--yellow-light);
+            transform: scale(1.03);
         }
 
         /* ===== ACHIEVEMENTS ===== */
         .achievements {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--black);
         }
 
@@ -779,7 +732,7 @@
 
         /* ===== PARTNERS ===== */
         .partners {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--zinc-950);
             overflow: hidden;
         }
@@ -788,7 +741,7 @@
             text-align: center;
             font-size: 26px;
             font-weight: 700;
-            margin: 0 0 48px;
+            margin: 0 0 32px;
         }
 
         .partners-marquee-wrap {
@@ -802,19 +755,27 @@
             display: inline-flex;
             gap: 64px;
             align-items: center;
-            font-size: 24px;
-            font-weight: 700;
-            opacity: 0.7;
+            opacity: 0.85;
             animation: marquee 30s linear infinite;
         }
 
         .partners-marquee>div {
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-logo {
+            height: 32px;
+            width: auto;
+            filter: grayscale(100%) brightness(2);
+            opacity: 0.85;
         }
 
         /* ===== TESTIMONIALS ===== */
         .testimonials {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--black);
         }
 
@@ -822,19 +783,32 @@
             text-align: center;
             font-size: 30px;
             font-weight: 700;
-            margin: 0 0 64px;
+            margin: 0 0 32px;
         }
 
-        .testi-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
+        /* Point 4: mobile = single-card sliding carousel */
+        .testi-carousel {
+            position: relative;
+            max-width: 720px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testi-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testi-track .testi-card {
+            min-width: 100%;
+            box-sizing: border-box;
         }
 
         .testi-card {
             background: var(--zinc-900);
             padding: 32px;
             border-radius: 24px;
+            height: 100%;
         }
 
         .testi-card .stars {
@@ -871,9 +845,32 @@
             color: var(--gray-400);
         }
 
+        .testi-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .testi-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--yellow-dim-30);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .testi-dot.active {
+            background: var(--yellow);
+            transform: scale(1.2);
+        }
+
         /* ===== FAQ ===== */
         .faq {
-            padding: 80px 0;
+            padding: 48px 0;
             background: var(--zinc-950);
         }
 
@@ -887,31 +884,65 @@
             text-align: center;
             font-size: 30px;
             font-weight: 700;
-            margin: 0 0 64px;
+            margin: 0 0 32px;
         }
 
         .faq-list {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
         .faq-item {
             background: var(--black);
             border: 1px solid var(--yellow-dim-20);
             border-radius: 24px;
-            padding: 32px;
+            padding: 0;
+            overflow: hidden;
         }
 
-        .faq-item .q {
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            text-align: left;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
             font-weight: 600;
-            font-size: 18px;
-            margin: 0 0 12px;
+            font-size: 17px;
+            cursor: pointer;
         }
 
-        .faq-item .a {
+        .faq-question i {
+            color: var(--yellow);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+            padding: 0 32px;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 32px 24px;
+        }
+
+        .faq-answer p {
             color: var(--gray-400);
             margin: 0;
+            line-height: 1.6;
         }
 
         /* ===== FOOTER ===== */
@@ -921,6 +952,7 @@
             padding: 56px 0 24px;
         }
 
+        /* Point 5: footer grid now defined per-breakpoint below so it is a single row on desktop */
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -946,6 +978,15 @@
             font-weight: 700;
             font-size: 22px;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .footer-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+            pointer-events: auto;
         }
 
         .footer-brand .name {
@@ -1184,245 +1225,117 @@
 
         /* ===== ANIMATIONS ===== */
         @keyframes marquee {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(6px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
         }
 
         /* ===== RESPONSIVE: sm 640px+ ===== */
         @media (min-width: 640px) {
-            .header-inner {
-                padding: 20px 24px;
-            }
+            .header-inner { padding: 20px 24px; }
+            .header-logo-box { width: 56px; height: 56px; font-size: 30px; }
+            .btn-pay-now, .btn-quote { padding: 12px 24px; }
 
-            .header-logo-box {
-                width: 48px;
-                height: 48px;
-                font-size: 30px;
-            }
+            .hero { min-height: 80vh; padding: 80px 0; }
+            .hero h1 { font-size: 48px; }
+            .hero-carousel { height: 64px; }
+            .hero-carousel-inner { font-size: 20px; }
+            .hero-sub { font-size: 18px; }
+            .btn-hero-quote { font-size: 18px; padding: 20px 40px; }
+            .btn-hero-quote i { font-size: 22px; }
+            .scroll-indicator { display: flex; }
 
-            .header-brand h1 {
-                font-size: 30px;
-            }
+            .section-head h2 { font-size: 36px; }
+            .about h2 { font-size: 36px; }
+            .about-stat .num { font-size: 34px; }
+            .about-stat .label { font-size: 13px; }
 
-            .header-brand .tagline {
-                font-size: 10px;
-            }
+            .ach-grid { gap: 40px; }
+            .stat-number { font-size: 44px; }
 
-            .btn-pay-now,
-            .btn-quote {
-                padding: 12px 24px;
-            }
+            .partners h2 { font-size: 32px; }
+            .partner-logo { height: 44px; }
 
-            .hero {
-                min-height: 80vh;
-                padding: 80px 0;
-            }
+            .testimonials h2 { font-size: 36px; }
+            .faq h2 { font-size: 36px; }
 
-            .hero h1 {
-                font-size: 48px;
-            }
+            .footer-logo-box { width: 44px; height: 44px; }
 
-            .hero-carousel {
-                height: 64px;
-            }
-
-            .hero-carousel-inner {
-                font-size: 20px;
-            }
-
-            .hero-sub {
-                font-size: 18px;
-            }
-
-            .btn-whatsapp {
-                font-size: 18px;
-                padding: 20px 40px;
-            }
-
-            .btn-whatsapp i {
-                font-size: 22px;
-            }
-
-            .trust-strip {
-                gap: 20px;
-            }
-
-            .scroll-indicator {
-                display: flex;
-            }
-
-            .section-head h2 {
-                font-size: 36px;
-            }
-
-            .about h2 {
-                font-size: 36px;
-            }
-
-            .about-stat .num {
-                font-size: 34px;
-            }
-
-            .about-stat .label {
-                font-size: 13px;
-            }
-
-            .ach-grid {
-                gap: 40px;
-            }
-
-            .stat-number {
-                font-size: 44px;
-            }
-
-            .partners h2 {
-                font-size: 32px;
-            }
-
-            .partners-marquee {
-                font-size: 32px;
-            }
-
-            .testimonials h2 {
-                font-size: 36px;
-            }
-
-            .faq h2 {
-                font-size: 36px;
-            }
-
-            .footer-logo-box {
-                width: 44px;
-                height: 44px;
-            }
-
-            .wa-float {
-                bottom: 22px;
-                right: 22px;
-            }
-
-            .wa-float-circle {
-                width: 64px;
-                height: 64px;
-            }
-
-            .wa-float-circle i {
-                font-size: 34px;
-            }
+            .wa-float { bottom: 22px; right: 22px; }
+            .wa-float-circle { width: 64px; height: 64px; }
+            .wa-float-circle i { font-size: 34px; }
         }
 
         /* ===== RESPONSIVE: md 768px+ ===== */
         @media (min-width: 768px) {
-            .header-inner {
-                grid-template-columns: 1fr auto 1fr;
-            }
+            .header-inner { grid-template-columns: auto 1fr auto; }
+            .header-nav { display: flex; }
 
-            .header-nav {
-                display: flex;
-            }
+            .hero h1 { font-size: 60px; }
+            .hero-carousel { height: 80px; }
+            .hero-carousel-inner { font-size: 30px; }
 
-            .hero h1 {
-                font-size: 60px;
+            .about, .tech-section, .services, .achievements, .partners, .testimonials, .faq {
+                padding: 80px 0;
             }
+            .section-head { margin-bottom: 64px; }
+            .partners h2, .testimonials h2, .faq h2 { margin-bottom: 64px; }
 
-            .hero-carousel {
-                height: 80px;
+            .about-grid { grid-template-columns: 1fr 1fr; gap: 64px; }
+            .about h2 { font-size: 44px; }
+            .about-media { margin-bottom: 0; }
+            .about-badge-card {
+                position: absolute;
+                bottom: -24px;
+                left: -24px;
+                margin: 0;
+                max-width: 280px;
+                padding: 24px;
             }
+            .about-badge-card .emoji { font-size: 48px; }
 
-            .hero-carousel-inner {
-                font-size: 30px;
-            }
+            .tech-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 32px; }
+            .tech-marquee-wrap { display: none; }
+            .tech-card { padding: 32px; }
+            .tech-card i { font-size: 44px; }
+            .tech-card .label { font-size: 15px; }
 
-            .about-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 64px;
-            }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .about h2 {
-                font-size: 44px;
-            }
+            .ach-grid { grid-template-columns: repeat(4, 1fr); }
 
-            .tech-grid {
+            /* Point 4: testimonials become a static 3-up grid from tablet width up, carousel machinery disabled */
+            .testi-carousel { max-width: none; overflow: visible; }
+            .testi-track {
                 display: grid;
-                grid-template-columns: repeat(6, 1fr);
-                gap: 32px;
-            }
-
-            .tech-marquee-wrap {
-                display: none;
-            }
-
-            .tech-card {
-                padding: 32px;
-            }
-
-            .tech-card i {
-                font-size: 44px;
-            }
-
-            .tech-card .label {
-                font-size: 15px;
-            }
-
-            .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+                transform: none !important;
             }
+            .testi-track .testi-card { min-width: 0; }
+            .testi-dots { display: none; }
 
-            .ach-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .testi-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
+            /* Point 5: footer as a single row of 4 columns on desktop/tablet */
             .footer-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-
-            .footer-brand-col {
-                grid-column: span 2;
+                grid-template-columns: 1.6fr 1fr 1fr 1fr;
+                gap: 32px;
             }
         }
 
         /* ===== RESPONSIVE: lg 1024px+ ===== */
         @media (min-width: 1024px) {
-            .hero h1 {
-                font-size: 68px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .hero h1 { font-size: 68px; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .testi-track { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -1432,10 +1345,10 @@
     <header class="site-header">
         <div class="header-inner">
             <div class="header-brand">
-                <div class="header-logo-box">R</div>
-                <div>
-                    <h1 class="heading-font">RSA Tech</h1>
-                    <p class="tagline">SOFTWARE</p>
+                <!-- Point 2: text wordmark removed, only the logo box remains — paste your logo image URL below -->
+                <div class="header-logo-box">
+                    <img src="ADD-YOUR-LOGO-LINK-HERE.png" alt="RSA Tech Softwares Logo"
+                        onerror="this.remove(); this.parentElement.textContent='R';">
                 </div>
             </div>
 
@@ -1448,7 +1361,6 @@
             </nav>
 
             <div class="header-actions">
-                <!-- Pay Now: update href below with your payment gateway link -->
                 <a id="pay-now-link" href="#" class="btn-pay-now">
                     <span>Pay Now</span>
                 </a>
@@ -1466,7 +1378,7 @@
             </div>
 
             <h1 class="heading-font">
-                DIGITAL SUCCESS<br>STARTS WITH <span class="accent">RSA TECH SOFTWARE</span>
+                DIGITAL SUCCESS<br>STARTS WITH <span class="accent">RSA TECH SOFTWARES</span>
             </h1>
 
             <div class="hero-underline"></div>
@@ -1487,16 +1399,10 @@
             <p class="hero-sub">End-to-end digital solutions that drive real business growth</p>
 
             <div class="hero-cta-wrap">
-                <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    CHAT ON WHATSAPP
-                </a>
-            </div>
-
-            <div class="trust-strip">
-                <div class="trust-pill"><i class="fas fa-shield-halved"></i><span>Trusted Since 2017</span></div>
-                <div class="trust-pill"><i class="fas fa-star"></i><span>4.9/5 Client Rating</span></div>
-                <div class="trust-pill"><i class="fas fa-briefcase"></i><span>120+ Projects Delivered</span></div>
+                <button class="btn-hero-quote" onclick="openModal()">
+                    <!-- <i class="fas fa-file-invoice"></i> -->
+                    GET QUOTE
+                </button>
             </div>
         </div>
 
@@ -1517,7 +1423,7 @@
                     <div class="about-eyebrow"><span class="dot"></span>WHO WE ARE</div>
                     <h2 class="heading-font">We build digital experiences that <span class="accent">convert</span></h2>
                     <p class="lead">
-                        RSA Tech Software is a full-service digital agency specializing in creating powerful online
+                        RSA Tech Softwares is a full-service digital agency specializing in creating powerful online
                         presence for businesses. From stunning websites and mobile apps to result-driven advertising
                         campaigns, we deliver end-to-end digital solutions.
                     </p>
@@ -1684,6 +1590,7 @@
     </section>
 
     <!-- SERVICES -->
+    <!-- Point 3: icons removed, each card now ends with a centered "Get Quote" button -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-head">
@@ -1693,75 +1600,66 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🌐</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-WEBSITE-DEVELOPMENT.png" alt="Website Development Infographic">
                     <h3>Website Development</h3>
                     <p>Custom, fast, and conversion-focused websites that represent your brand perfectly.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('Website Development')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-APP-DEVELOPMENT.png" alt="App Development Infographic">
                     <h3>App Development</h3>
                     <p>Native & cross-platform mobile applications for iOS and Android.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('App Development')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📈</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-GOOGLE-ADS.png" alt="Google Ads Infographic">
                     <h3>Google Ads</h3>
                     <p>Pay-per-click campaigns on Google Search & Display Network.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('Google Ads')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📢</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-META-ADS.png" alt="Meta Ads Infographic">
                     <h3>Meta Ads</h3>
                     <p>Facebook & Instagram advertising campaigns that deliver ROI.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('Meta Ads')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-SEO.png" alt="SEO Infographic">
                     <h3>Search Engine Optimization</h3>
                     <p>Rank higher on Google and drive organic traffic.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('SEO Services')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🎥</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-VIDEO-EDITING.png" alt="Video Editing Infographic">
                     <h3>Video Editing</h3>
                     <p>Professional video editing for social media and marketing.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('Video Editing')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">📹</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-UGC-VIDEO.png" alt="UGC Video Infographic">
                     <h3>UGC Video</h3>
                     <p>Authentic user-generated content videos that build trust.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('UGC Video')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🎨</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-GRAPHICS-DESIGNING.png" alt="Graphics Designing Infographic">
                     <h3>Graphics Designing</h3>
                     <p>Branding, social media creatives and professional design solutions.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('Graphics Designing')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🖌️</div>
+                    <img class="service-infographic" src="ADD-INFOGRAPHIC-LINK-UIUX-DESIGN.png" alt="UI/UX Design Infographic">
                     <h3>UI/UX Design</h3>
                     <p>Intuitive, user-centered interfaces that improve engagement and conversions.</p>
-                    <button class="service-link" onclick="whatsappEnquiry('UI/UX Design')">Enquire on WhatsApp <i
-                            class="fab fa-whatsapp"></i></button>
+                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
             </div>
         </div>
@@ -1797,70 +1695,75 @@
             <h2 class="heading-font">Our Trusted Partners</h2>
             <div class="partners-marquee-wrap">
                 <div class="partners-marquee">
-                    <div>Google</div>
-                    <div>Meta</div>
-                    <div>Shopify</div>
-                    <div>AWS</div>
-                    <div>Adobe</div>
-                    <div>Canva</div>
-                    <div>WordPress</div>
-                    <div>Laravel</div>
-                    <div>Google</div>
-                    <div>Meta</div>
-                    <div>Shopify</div>
-                    <div>AWS</div>
-                    <div>Adobe</div>
-                    <div>Canva</div>
-                    <div>WordPress</div>
-                    <div>Laravel</div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-GOOGLE.png" alt="Google"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-META.png" alt="Meta"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-SHOPIFY.png" alt="Shopify"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-AWS.png" alt="AWS"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-ADOBE.png" alt="Adobe"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-CANVA.png" alt="Canva"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-WORDPRESS.png" alt="WordPress"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-LARAVEL.png" alt="Laravel"></div>
+                    <!-- duplicate set for seamless marquee loop -->
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-GOOGLE.png" alt="Google"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-META.png" alt="Meta"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-SHOPIFY.png" alt="Shopify"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-AWS.png" alt="AWS"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-ADOBE.png" alt="Adobe"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-CANVA.png" alt="Canva"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-WORDPRESS.png" alt="WordPress"></div>
+                    <div><img class="partner-logo" src="ADD-LOGO-LINK-LARAVEL.png" alt="Laravel"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIALS -->
+    <!-- Point 4: single sliding card on mobile, static 3-column grid from tablet width up -->
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="heading-font">What Our Clients Say</h2>
-            <div class="testi-grid">
-                <div class="testi-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"RSA Tech transformed our online presence completely. Our leads increased by 340%
-                        in just 3 months!"</p>
-                    <div class="author">
-                        <div class="avatar"></div>
-                        <div>
-                            <div class="name">Rahul Sharma</div>
-                            <div class="role">Founder, FitLife Gym</div>
+            <div class="testi-carousel">
+                <div class="testi-track" id="testi-track">
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"RSA Tech Softwares transformed our online presence completely. Our leads
+                            increased by 340% in just 3 months!"</p>
+                        <div class="author">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="name">Rahul Sharma</div>
+                                <div class="role">Founder, FitLife Gym</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="testi-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"The best digital agency we've worked with. Professional, creative and most
-                        importantly - result oriented."</p>
-                    <div class="author">
-                        <div class="avatar"></div>
-                        <div>
-                            <div class="name">Priya Malhotra</div>
-                            <div class="role">CEO, Luxe Fashion</div>
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"The best digital agency we've worked with. Professional, creative and most
+                            importantly - result oriented."</p>
+                        <div class="author">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="name">Priya Malhotra</div>
+                                <div class="role">CEO, Luxe Fashion</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="testi-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"Their UGC video content strategy helped us scale our Instagram presence
-                        beautifully."</p>
-                    <div class="author">
-                        <div class="avatar"></div>
-                        <div>
-                            <div class="name">Aman Khan</div>
-                            <div class="role">Marketing Head, TechNova</div>
+                    <div class="testi-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Their UGC video content strategy helped us scale our Instagram presence
+                            beautifully."</p>
+                        <div class="author">
+                            <div class="avatar"></div>
+                            <div>
+                                <div class="name">Aman Khan</div>
+                                <div class="role">Marketing Head, TechNova</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="testi-dots" id="testi-dots"></div>
             </div>
         </div>
     </section>
@@ -1871,31 +1774,49 @@
             <h2 class="heading-font">Frequently Asked Questions</h2>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="q">How long does it take to build a website?</div>
-                    <p class="a">Typically 4-8 weeks depending on the complexity. We follow agile methodology with
-                        regular updates.</p>
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>How long does it take to build a website?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Typically 4-8 weeks depending on the complexity. We follow agile methodology with regular
+                            updates.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <div class="q">Do you provide monthly ad management?</div>
-                    <p class="a">Yes. We offer complete campaign management with detailed monthly reports.</p>
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you provide monthly ad management?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We offer complete campaign management with detailed monthly reports.</p>
+                    </div>
                 </div>
                 <div class="faq-item">
-                    <div class="q">What is your payment structure?</div>
-                    <p class="a">We work with milestone-based payments to ensure transparency and client satisfaction.
-                    </p>
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>What is your payment structure?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with milestone-based payments to ensure transparency and client satisfaction.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
+    <!-- Point 5: brand / quick links / services / contact+payments are 4 sibling columns → single row on desktop -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand-col footer-about">
                     <div class="footer-brand">
-                        <div class="footer-logo-box">R</div>
-                        <div class="name heading-font">RSA Tech Software</div>
+                        <div class="footer-logo-box">
+                            <img src="ADD-YOUR-LOGO-LINK-HERE.png" alt="RSA Tech Softwares Logo"
+                                onerror="this.remove(); this.parentElement.textContent='R';">
+                        </div>
+                        <div class="name heading-font">RSA Tech Softwares</div>
                     </div>
                     <p>Your complete digital growth partner. From idea to execution — we make it happen.</p>
                     <div class="footer-socials">
@@ -1907,17 +1828,17 @@
 
                 <div class="footer-col">
                     <h4>QUICK LINKS</h4>
-                    <div class="footer-links">
-                        <div>Home</div>
-                        <div>Services</div>
-                        <div>Portfolio</div>
-                        <div>Contact</div>
+                    <div class="footer-links" id="footer-quick-links">
+                        <a href="#">Home</a>
+                        <a href="#about">About Us</a>
+                        <a href="#services">Services</a>
+                        <a href="#testimonials">Testimonials</a>
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h4>SERVICES</h4>
-                    <div class="footer-links">
+                    <div class="footer-links" id="footer-services-list">
                         <div>Web Development</div>
                         <div>App Development</div>
                         <div>Google & Meta Ads</div>
@@ -1930,28 +1851,25 @@
                 <div class="footer-col">
                     <h4>CONTACT</h4>
                     <div class="footer-links">
+                        <div>88/10 U-Block, Shakarpur Laxmi Nagar, New Delhi, 110092</div>
+                         <div>info@rsatechsoftwares.com</div>
                         <div class="footer-contact-row">
                             <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/919876543210">+91 98765 43210</a>
+                            <a href="https://wa.me/919267917752">+91 92679 17752</a>
                         </div>
-                        <div>hello@rsatech.in</div>
-                        <div>New Delhi, India</div>
+                        
                     </div>
-                </div>
-
-                <!-- Highlighted Pay Now -->
-                <div class="footer-col">
-                    <h4>PAYMENTS</h4>
+                    <!-- <h4 style="margin-top: 24px;">PAYMENTS</h4>
                     <a id="custom-footer-link" href="#" class="btn-pay-footer">
                         Pay Now
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <p class="footer-pay-note">Secure, quick payments for your ongoing project.</p>
+                    <p class="footer-pay-note">Secure, quick payments for your ongoing project.</p> -->
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2026 RSA Tech Software. All Rights Reserved.</p>
+                <p>© 2026 RSA Tech Softwares. All Rights Reserved.</p>
                 <p>Powered by Shri Ram Puja</p>
             </div>
         </div>
@@ -1975,7 +1893,7 @@
     </div>
 
     <!-- FLOATING WHATSAPP ICON -->
-    <a href="https://wa.me/919876543210" target="_blank" aria-label="Chat on WhatsApp" class="wa-float">
+    <a href="https://wa.me/919267917752" target="_blank" aria-label="Chat on WhatsApp" class="wa-float">
         <div class="wa-float-circle"><i class="fab fa-whatsapp"></i></div>
     </a>
 
@@ -1994,8 +1912,8 @@
         setInterval(rotateServices, 2200);
 
         function whatsappEnquiry(service) {
-            const message = `Hello RSA Tech! I want to enquire about ${service}.`;
-            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+            const message = `Hello RSA Tech Softwares! I want to enquire about ${service}.`;
+            window.open(`https://wa.me/919267917752?text=${encodeURIComponent(message)}`, '_blank');
         }
 
         function openModal() {
@@ -2009,7 +1927,7 @@
         function submitEnquiry() {
             const name = document.getElementById('name').value || "Client";
             const message = `Hello! My name is ${name}. ${document.getElementById('message').value || "I would like to discuss a project."}`;
-            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/919267917752?text=${encodeURIComponent(message)}`, '_blank');
             closeModal();
         }
 
@@ -2045,7 +1963,75 @@
             if (e.key === "Escape") closeModal();
         });
 
-        console.log('%c✅ RSA Tech Landing Page Loaded Successfully', 'color: #facc15; font-size: 14px; font-weight: bold');
+        // ===== Testimonial Carousel (mobile only — CSS switches to a static grid from 768px up) =====
+        (function () {
+            const track = document.getElementById('testi-track');
+            const dotsWrap = document.getElementById('testi-dots');
+            const slides = track.querySelectorAll('.testi-card');
+            let index = 0;
+            let autoTimer = null;
+
+            function isMobile() {
+                return window.matchMedia('(max-width: 767px)').matches;
+            }
+
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    resetAutoSlide();
+                });
+                dotsWrap.appendChild(dot);
+            });
+
+            function goToSlide(i) {
+                if (!isMobile()) return;
+                index = i;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dotsWrap.querySelectorAll('.testi-dot').forEach((d, di) => {
+                    d.classList.toggle('active', di === index);
+                });
+            }
+
+            function nextSlide() {
+                if (!isMobile()) return;
+                goToSlide((index + 1) % slides.length);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoTimer);
+                if (isMobile()) autoTimer = setInterval(nextSlide, 4000);
+            }
+
+            resetAutoSlide();
+            window.addEventListener('resize', resetAutoSlide);
+        })();
+
+        // ===== FAQ toggle =====
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        // ===== basic deterrents against right-click / view-source shortcuts =====
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', function (e) {
+            const key = e.key.toUpperCase();
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && key === 'U') ||
+                (e.ctrlKey && key === 'S') ||
+                (e.ctrlKey && e.shiftKey && (key === 'I' || key === 'J' || key === 'C'))
+            ) {
+                e.preventDefault();
+            }
+        });
+
+        console.log('%c✅ RSA Tech Softwares Landing Page Loaded Successfully', 'color: #facc15; font-size: 14px; font-weight: bold');
     </script>
 </body>
 
