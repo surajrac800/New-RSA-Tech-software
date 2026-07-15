@@ -704,36 +704,115 @@
 
         .service-card p {
             color: var(--gray-400);
-            margin: 0 0 32px;
+            margin: 0;
             flex: 1 1 auto;
         }
 
-        .service-link {
-            background: var(--yellow);
-            color: var(--black);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 12px 28px;
-            border-radius: 16px;
-            margin: 0 auto;
-            transition: background 0.25s ease, transform 0.25s ease;
+        /* ===== PORTFOLIO ===== */
+        .portfolio {
+            padding: 48px 0;
+            background: var(--black);
         }
 
-        .service-link:hover {
-            background: var(--yellow-light);
-            transform: scale(1.03);
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .portfolio-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--zinc-900);
+            border: 1px solid var(--yellow-dim-10);
+            aspect-ratio: 4 / 3;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(250, 204, 21, 0.18);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.92) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+
+        .portfolio-tag {
+            display: inline-flex;
+            align-self: flex-start;
+            background: var(--yellow);
+            color: var(--black);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            padding: 5px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 19px;
+            font-weight: 600;
+            margin: 0 0 6px;
+        }
+
+        .portfolio-card .result {
+            color: var(--yellow);
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .portfolio-cta-wrap {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .btn-portfolio-cta {
+            background: transparent;
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 32px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-portfolio-cta:hover {
+            background: var(--yellow);
+            color: var(--black);
         }
 
         /* ===== ACHIEVEMENTS ===== */
         .achievements {
             padding: 48px 0;
-            background: var(--black);
+            background: var(--zinc-950);
         }
 
         .ach-grid {
@@ -759,7 +838,7 @@
         /* ===== PARTNERS ===== */
         .partners {
             padding: 48px 0;
-            background: var(--zinc-950);
+            background: var(--black);
             overflow: hidden;
         }
 
@@ -802,7 +881,7 @@
         /* ===== TESTIMONIALS ===== */
         .testimonials {
             padding: 48px 0;
-            background: var(--black);
+            background: var(--zinc-950);
         }
 
         .testimonials h2 {
@@ -831,7 +910,7 @@
         }
 
         .testi-card {
-            background: var(--zinc-900);
+            background: var(--black);
             padding: 32px;
             border-radius: 24px;
             height: 100%;
@@ -897,7 +976,7 @@
         /* ===== FAQ ===== */
         .faq {
             padding: 48px 0;
-            background: var(--zinc-950);
+            background: var(--black);
         }
 
         .faq-container {
@@ -920,7 +999,7 @@
         }
 
         .faq-item {
-            background: var(--black);
+            background: var(--zinc-950);
             border: 1px solid var(--yellow-dim-20);
             border-radius: 24px;
             padding: 0;
@@ -1310,7 +1389,7 @@
             .hero-carousel { height: 80px; }
             .hero-carousel-inner { font-size: 30px; }
 
-            .about, .tech-section, .services, .achievements, .partners, .testimonials, .faq {
+            .about, .tech-section, .services, .portfolio, .achievements, .partners, .testimonials, .faq {
                 padding: 80px 0;
             }
             .section-head { margin-bottom: 64px; }
@@ -1337,6 +1416,8 @@
 
             .services-grid { grid-template-columns: repeat(2, 1fr); }
 
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
             .ach-grid { grid-template-columns: repeat(4, 1fr); }
 
             /* Point 4: testimonials become a static 3-up grid from tablet width up, carousel machinery disabled */
@@ -1361,6 +1442,7 @@
         @media (min-width: 1024px) {
             .hero h1 { font-size: 68px; }
             .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(3, 1fr); }
             .testi-track { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
@@ -1380,8 +1462,8 @@
             <nav class="header-nav">
                 <a href="#about" class="nav-link">About Us</a>
                 <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
-                <a href="#partners" class="nav-link">Partners</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
             </nav>
 
@@ -1638,7 +1720,6 @@
                     <h3>Website Development</h3>
                     <p>Custom, fast-loading, mobile-responsive websites built to represent your brand and convert
                         visitors into paying customers.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1646,7 +1727,6 @@
                     <h3>App Development</h3>
                     <p>Native and cross-platform mobile apps for iOS and Android, built for performance, scale and a
                         smooth user experience.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1654,7 +1734,6 @@
                     <h3>Google Ads</h3>
                     <p>Certified Google Ads management across Search, Display and Shopping to generate qualified
                         leads and measurable ROI.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1662,7 +1741,6 @@
                     <h3>Meta Ads</h3>
                     <p>Data-driven Facebook and Instagram ad campaigns designed to maximise reach, engagement and
                         sales for your brand.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1670,7 +1748,6 @@
                     <h3>Search Engine Optimization</h3>
                     <p>On-page, off-page and technical SEO strategies that help your website rank higher on Google
                         and attract organic traffic.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1678,7 +1755,6 @@
                     <h3>Video Editing</h3>
                     <p>Professional, scroll-stopping video edits for reels, ads and marketing content that boost
                         engagement and brand recall.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1686,7 +1762,6 @@
                     <h3>UGC Video</h3>
                     <p>Authentic, creator-style user-generated content videos that build trust and drive higher
                         engagement on social media.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1694,7 +1769,6 @@
                     <h3>Graphics Designing</h3>
                     <p>Branding, social media creatives and marketing collateral designed to strengthen your brand
                         identity and stand out.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
 
                 <div class="service-card">
@@ -1702,8 +1776,86 @@
                     <h3>UI/UX Design</h3>
                     <p>Intuitive, research-backed interfaces that improve usability, keep users engaged and increase
                         conversion rates.</p>
-                    <button class="service-link" onclick="openModal()">Get Quote</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-head">
+                <div class="services-eyebrow">OUR WORK</div>
+                <h2 class="heading-font">Recent Projects & Results</h2>
+                <p>A look at the websites, apps and campaigns we've shipped for real clients</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-1.png" alt="FitLife Gym website redesign project"
+                        onerror="this.src='https://picsum.photos/id/180/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Website Development</span>
+                        <h3>FitLife Gym</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> Leads up 340% in 3 months</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-2.png" alt="Luxe Fashion e-commerce app project"
+                        onerror="this.src='https://picsum.photos/id/1043/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">App Development</span>
+                        <h3>Luxe Fashion</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> 25K+ app installs in 60 days</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-3.png" alt="TechNova Meta Ads campaign project"
+                        onerror="this.src='https://picsum.photos/id/119/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Meta Ads</span>
+                        <h3>TechNova</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> 3.2x return on ad spend</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-4.png" alt="Urban Bites restaurant SEO project"
+                        onerror="this.src='https://picsum.photos/id/292/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">SEO</span>
+                        <h3>Urban Bites</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> Ranked #1 for 12 local keywords</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-5.png" alt="Nova Skincare Google Ads project"
+                        onerror="this.src='https://picsum.photos/id/96/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Google Ads</span>
+                        <h3>Nova Skincare</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> Cost per lead down 48%</div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <img src="ADD-PORTFOLIO-IMAGE-LINK-6.png" alt="Craft & Co branding and UGC content project"
+                        onerror="this.src='https://picsum.photos/id/160/700/525';">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Branding & UGC</span>
+                        <h3>Craft & Co</h3>
+                        <div class="result"><i class="fas fa-arrow-trend-up"></i> 2M+ organic video views</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-cta-wrap">
+                <button class="btn-portfolio-cta" onclick="openModal()">
+                    Discuss Your Project <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -1895,6 +2047,7 @@
                         <a href="#">Home</a>
                         <a href="#about">About Us</a>
                         <a href="#services">Services</a>
+                        <a href="#portfolio">Portfolio</a>
                         <a href="#testimonials">Testimonials</a>
                     </div>
                 </div>
@@ -1917,8 +2070,8 @@
                         <div>88/10 U-Block, Shakarpur Laxmi Nagar, New Delhi, 110092</div>
                          <div>info@rsatechsoftwares.com</div>
                         <div class="footer-contact-row">
-                            <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/919267917752">+91 92679 17752</a>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+919267917752">+91 92679 17752</a>
                         </div>
                         
                     </div>
@@ -1994,7 +2147,7 @@
             closeModal();
         }
 
-        // Counter animation
+        // Counter animation — triggered reliably via IntersectionObserver instead of a scroll-Y threshold
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
             counters.forEach(counter => {
@@ -2015,12 +2168,28 @@
         }
 
         let countersAnimated = false;
-        window.addEventListener('scroll', () => {
-            if (!countersAnimated && window.scrollY > 800) {
-                animateCounters();
-                countersAnimated = true;
-            }
-        });
+        const achievementsSection = document.getElementById('achievements');
+
+        if ('IntersectionObserver' in window && achievementsSection) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !countersAnimated) {
+                        animateCounters();
+                        countersAnimated = true;
+                        counterObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+            counterObserver.observe(achievementsSection);
+        } else {
+            // Fallback for older browsers
+            window.addEventListener('scroll', () => {
+                if (!countersAnimated && window.scrollY > 400) {
+                    animateCounters();
+                    countersAnimated = true;
+                }
+            });
+        }
 
         document.addEventListener('keydown', function (e) {
             if (e.key === "Escape") closeModal();
