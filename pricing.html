@@ -218,7 +218,7 @@
                 url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            padding: 64px 0 40px;
+            padding: 48px 0 24px;
             text-align: center;
         }
 
@@ -443,35 +443,83 @@
             border-color: var(--yellow);
         }
 
-        /* Featured combo */
+        /* Featured combo — made to stand out above every other card */
         .price-card.featured {
             border: 2px solid var(--yellow);
-            background: linear-gradient(180deg, var(--yellow-dim-10), var(--zinc-900) 45%);
+            background: linear-gradient(180deg, var(--yellow-dim-20), var(--zinc-900) 55%);
             position: relative;
+            padding: 40px 32px 32px;
+            box-shadow: 0 0 0 1px var(--yellow-dim-30), 0 30px 70px -15px rgba(250, 204, 21, 0.35);
+            animation: glow-pulse 2.6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .price-card.featured:hover {
+            transform: translateY(-14px) scale(1.01);
         }
 
         .price-card.featured::before {
-            content: "MOST POPULAR";
+            content: "\f005  MOST POPULAR  \f005";
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
             position: absolute;
-            top: -14px;
-            left: 32px;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
             background: var(--yellow);
             color: var(--black);
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 12px;
             letter-spacing: 0.08em;
-            padding: 6px 16px;
+            padding: 8px 22px;
             border-radius: 999px;
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.45);
+            white-space: nowrap;
+        }
+
+        .price-card.featured .price-card-icon {
+            width: 62px;
+            height: 62px;
+            background: var(--yellow);
+            border-color: var(--yellow);
+        }
+
+        .price-card.featured .price-card-icon i {
+            color: var(--black);
+            font-size: 26px;
+        }
+
+        .price-card.featured h3 {
+            font-size: 24px;
+        }
+
+        .price-card.featured .price-tag .amount {
+            font-size: 32px;
         }
 
         .price-card.featured .price-card-cta {
             background: var(--yellow);
             color: var(--black);
             border-color: var(--yellow);
+            font-size: 16px;
+            padding: 16px;
+            box-shadow: 0 12px 24px rgba(250, 204, 21, 0.3);
         }
 
         .price-card.featured .price-card-cta:hover {
             background: var(--yellow-light);
+            transform: scale(1.02);
+        }
+
+        @keyframes glow-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 1px var(--yellow-dim-30), 0 30px 70px -15px rgba(250, 204, 21, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 0 1px var(--yellow-dim-60), 0 30px 80px -10px rgba(250, 204, 21, 0.5);
+            }
         }
 
         .combo-includes {
@@ -486,7 +534,7 @@
         .combo-includes li {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 14px;
             color: #fff;
             background: rgba(0, 0, 0, 0.3);
@@ -496,17 +544,85 @@
         }
 
         .combo-includes li .num {
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: var(--yellow);
-            color: var(--black);
-            font-size: 12px;
-            font-weight: 700;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: var(--yellow-dim-10);
+            border: 1px solid var(--yellow-dim-30);
+            color: var(--yellow);
+            font-size: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+        }
+
+        .combo-includes li .item-label {
+            flex: 1 1 auto;
+        }
+
+        .combo-includes li .item-price {
+            color: var(--gray-500);
+            text-decoration: line-through;
+            font-size: 13px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .combo-includes li.combo-total-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px dashed var(--yellow-dim-30);
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-top: 4px;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+
+        .combo-total-row .strike {
+            text-decoration: line-through;
+            color: var(--gray-500);
+        }
+
+        .savings-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--yellow);
+            color: var(--black);
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+
+        .price-card.featured .price-tag {
+            flex-wrap: wrap;
+            row-gap: 6px;
+        }
+
+        .strike-price {
+            text-decoration: line-through;
+            color: var(--gray-500);
+            font-size: 17px;
+            font-weight: 600;
+            margin-right: 2px;
+        }
+
+        .off-badge {
+            background: var(--yellow);
+            color: var(--black);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-left: 4px;
         }
 
         .note-strip {
@@ -982,10 +1098,7 @@
     <section class="page-hero">
         <div class="container">
             <div class="page-hero-eyebrow"><span class="dot"></span>PRICING</div>
-            <h1 class="heading-font">Simple pricing for <span class="accent">every stage</span> of your growth</h1>
             <div class="hero-underline"></div>
-            <p>Pick a single service or bundle a few together. Every plan is backed by one dedicated team — no
-                account managers, no middlemen.</p>
         </div>
     </section>
 
@@ -994,8 +1107,6 @@
         <div class="container">
             <div class="section-head">
                 <div class="services-eyebrow">OUR PLANS</div>
-                <h2 class="heading-font">Choose What Your Project Needs</h2>
-                <p>All prices are starting estimates — final quote depends on scope and depth of work.</p>
             </div>
 
             <div class="pricing-grid">
@@ -1050,7 +1161,7 @@
                     <div class="price-card-icon"><i class="fab fa-shopify"></i></div>
                     <h3>Shopify Store</h3>
                     <p class="desc">A complete Shopify setup, from theme design to product upload.</p>
-                    <div class="price-tag"><span class="amount">₹24,999</span><span class="period">/ store</span></div>
+                    <div class="price-tag"><span class="amount">₹37,999</span><span class="period">/ store</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Custom Shopify theme</li>
                         <li><i class="fas fa-check"></i> Product &amp; catalog setup</li>
@@ -1095,7 +1206,7 @@
                     <div class="price-card-icon"><i class="fab fa-meta"></i></div>
                     <h3>Meta Ads</h3>
                     <p class="desc">Facebook &amp; Instagram ad campaigns built around real conversions.</p>
-                    <div class="price-tag"><span class="amount">₹9,999</span><span class="period">/ month</span></div>
+                    <div class="price-tag"><span class="amount">₹19,999</span><span class="period">/ month</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Audience research &amp; targeting</li>
                         <li><i class="fas fa-check"></i> Ad creative design</li>
@@ -1110,7 +1221,7 @@
                     <div class="price-card-icon"><i class="fab fa-google"></i></div>
                     <h3>Google Ads</h3>
                     <p class="desc">Search, Display &amp; Shopping campaigns that reach high-intent customers.</p>
-                    <div class="price-tag"><span class="amount">₹9,999</span><span class="period">/ month</span></div>
+                    <div class="price-tag"><span class="amount">₹24,999</span><span class="period">/ month</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Keyword &amp; competitor research</li>
                         <li><i class="fas fa-check"></i> Conversion tracking setup</li>
@@ -1125,7 +1236,7 @@
                     <div class="price-card-icon"><i class="fas fa-layer-group"></i></div>
                     <h3>Meta Ads + Google Ads</h3>
                     <p class="desc">Both platforms managed together for wider reach and consistent branding.</p>
-                    <div class="price-tag"><span class="amount">₹17,999</span><span class="period">/ month</span></div>
+                    <div class="price-tag"><span class="amount">₹34,999</span><span class="period">/ month</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Unified ad strategy</li>
                         <li><i class="fas fa-check"></i> Cross-platform targeting</li>
@@ -1142,9 +1253,9 @@
                     <p class="desc">Consistent, engaging content that keeps your brand active and relevant.</p>
                     <div class="price-tag multi">
                         <div class="tier-row"><span class="tier-label">4 Reels + 20 Posts</span><span
-                                class="amount">₹9,999</span></div>
-                        <div class="tier-row"><span class="tier-label">10 Reels + 25 Posts</span><span
                                 class="amount">₹14,999</span></div>
+                        <div class="tier-row"><span class="tier-label">10 Reels + 25 Posts</span><span
+                                class="amount">₹24,999</span></div>
                     </div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Monthly content calendar</li>
@@ -1159,7 +1270,7 @@
                     <div class="price-card-icon"><i class="fas fa-arrow-trend-up"></i></div>
                     <h3>CRO Setup &amp; Optimization</h3>
                     <p class="desc">Turn your existing traffic into more leads and sales with data-backed changes.</p>
-                    <div class="price-tag"><span class="amount">₹19,999</span><span class="period">/ project</span>
+                    <div class="price-tag"><span class="amount">₹24,999</span><span class="period">/ project</span>
                     </div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Website/landing page audit</li>
@@ -1175,7 +1286,7 @@
                     <div class="price-card-icon"><i class="fas fa-server"></i></div>
                     <h3>Website Management</h3>
                     <p class="desc">Ongoing maintenance so your website stays secure, fast and up to date.</p>
-                    <div class="price-tag"><span class="amount">₹4,999</span><span class="period">/ month</span></div>
+                    <div class="price-tag"><span class="amount">₹14,999</span><span class="period">/ month</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Regular content updates</li>
                         <li><i class="fas fa-check"></i> Security &amp; backups</li>
@@ -1190,7 +1301,7 @@
                     <div class="price-card-icon"><i class="fas fa-screwdriver-wrench"></i></div>
                     <h3>App Management</h3>
                     <p class="desc">Post-launch support to keep your app running smoothly for users.</p>
-                    <div class="price-tag"><span class="amount">₹6,999</span><span class="period">/ month</span></div>
+                    <div class="price-tag"><span class="amount">₹24,999</span><span class="period">/ month</span></div>
                     <ul class="price-features">
                         <li><i class="fas fa-check"></i> Updates &amp; bug fixes</li>
                         <li><i class="fas fa-check"></i> Performance &amp; crash monitoring</li>
@@ -1208,19 +1319,29 @@
                             <h3>Complete Growth Combo</h3>
                             <p class="desc">Everything you need in one package — website, landing pages, paid ads,
                                 CRO and social media, working together.</p>
-                            <div class="price-tag"><span class="amount">₹49,999</span><span class="period">/
-                                    month</span></div>
-                            <button class="price-card-cta" onclick="openModal('Most Popular Combo')">Get This
-                                Combo</button>
+                            <div class="price-tag">
+                                <span class="strike-price">₹1,04,993</span>
+                                <span class="amount">₹49,999</span><span class="period">/ month</span>
+                                <span class="off-badge">52% OFF</span>
+                            </div>
                         </div>
                         <ul class="combo-includes">
-                            <li><span class="num">1</span> Website Development</li>
-                            <li><span class="num">2</span> 3 Landing Pages</li>
-                            <li><span class="num">3</span> Paid Performance Marketing (Meta + Google)</li>
-                            <li><span class="num">4</span> CRO Optimization</li>
-                            <li><span class="num">5</span> Social Media Handling</li>
+                            <li><span class="num"><i class="fas fa-globe"></i></span><span class="item-label">Website
+                                    Development</span><span class="item-price">₹14,999</span></li>
+                            <li><span class="num"><i class="fas fa-bullseye"></i></span><span
+                                    class="item-label">3 Landing Pages</span><span
+                                    class="item-price">₹14,997</span></li>
+                            <li><span class="num"><i class="fas fa-bullhorn"></i></span><span class="item-label">Paid
+                                    Performance Marketing (Meta + Google)</span><span
+                                    class="item-price">₹34,999</span></li>
+                            <li><span class="num"><i class="fas fa-arrow-trend-up"></i></span><span
+                                    class="item-label">CRO Optimization</span><span
+                                    class="item-price">₹24,999</span></li>
+                            <li><span class="num"><i class="fas fa-hashtag"></i></span><span class="item-label">Social
+                                    Media Handling</span><span class="item-price">₹14,999</span></li>
                         </ul>
                     </div>
+                    <button class="price-card-cta" onclick="openModal('Most Popular Combo')">Get This Combo</button>
                 </div>
 
             </div>
