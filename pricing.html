@@ -7,9 +7,9 @@
     <title>Pricing | RSA Tech Software — Web Development, App Development & Digital Marketing Agency in Delhi</title>
     <meta name="description"
         content="Transparent pricing from RSA Tech Software for websites, apps, Shopify stores, CRM/LMS, Google & Meta Ads, SEO, Google My Business, social media handling, CRO and management plans.">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="shortcut icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/png" href="siteicons.png">
+    <link rel="shortcut icon" type="image/png" href="siteicons.png">
+    <link rel="apple-touch-icon" href="siteicons.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
@@ -1087,6 +1087,137 @@
                 gap: 4px;
             }
         }
+        /* ===== FOOTER: social icons, pay button, mobile toggles ===== */
+        .footer-socials {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: 1px solid var(--yellow-dim-30);
+            background: var(--yellow-dim-10);
+            color: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.25s ease;
+        }
+
+        .footer-socials a:hover {
+            background: var(--yellow);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        .footer-socials a i,
+        .footer-socials a:hover i {
+            color: inherit;
+        }
+
+        /* Pay Now lives in the footer on mobile only */
+        .footer-pay {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .footer-pay .rzp-pay-form {
+            transform: none;
+        }
+
+        .footer-toggle {
+            background: none;
+            border: none;
+            padding: 0;
+            color: inherit;
+            font: inherit;
+            letter-spacing: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .footer-toggle i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-col.open .footer-toggle i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 767px) {
+            .header-actions .rzp-pay-form {
+                display: none;
+            }
+
+            .footer-pay {
+                display: flex;
+            }
+
+            .footer-grid {
+                gap: 0;
+            }
+
+            .footer-brand-col {
+                margin-bottom: 28px;
+            }
+
+            .footer-col {
+                border-top: 1px solid var(--yellow-dim-20);
+            }
+
+            .footer-col:last-child {
+                border-bottom: 1px solid var(--yellow-dim-20);
+            }
+
+            .footer-col h4 {
+                margin: 0;
+            }
+
+            .footer-toggle {
+                padding: 16px 0;
+            }
+
+            .footer-col .footer-links {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.35s ease;
+            }
+
+            .footer-col.open .footer-links {
+                max-height: 400px;
+                padding-bottom: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .footer-toggle {
+                cursor: default;
+                pointer-events: none;
+            }
+
+            .footer-toggle i {
+                display: none;
+            }
+        }
+        /* Tagline: laptop/desktop only */
+        .footer-tagline {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .footer-tagline {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -1096,7 +1227,7 @@
         <div class="header-inner">
             <div class="header-brand">
                 <div class="header-logo-box">
-                    <img src="logo.png" alt="RSA Tech Software logo" onerror="this.parentElement.textContent='R';">
+                    <img src="rsa-logo.jpg" alt="RSA Tech Software logo" onerror="this.parentElement.textContent='R';">
                 </div>
             </div>
             <nav class="header-nav">
@@ -1428,25 +1559,38 @@
                 <div class="footer-brand-col footer-about">
                     <div class="footer-brand">
                         <div class="footer-logo-box">
-                            <img src="logo.png" alt="RSA Tech Software logo"
+                            <img src="rsa-logo.jpg" alt="RSA Tech Software logo"
                                 onerror="this.parentElement.textContent='R';">
                         </div>
                     </div>
-                    <p>Your Trusted IT & Digital Marketing Agency in Delhi | Expert in Website Development, App
+                    <p class="footer-tagline">Your Trusted IT &amp; Digital Marketing Agency in Delhi | Expert in Website Development, App
                         Development, Meta Ads, Google Ads, SEO &amp; Growth Solutions</p>
+                    <div class="footer-socials">
+                        <a href="https://www.linkedin.com/company/rsatechsoftware/" target="_blank" rel="noopener"
+                            aria-label="RSA Tech Software on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rsatechsoftware/" target="_blank" rel="noopener"
+                            aria-label="RSA Tech Software on Instagram"><i class="fab fa-instagram"></i></a>
+                        <!-- Facebook icon: add here later -->
+                    </div>
+                    <div class="footer-pay">
+                        <form class="rzp-pay-form">
+                            <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                                data-payment_button_id="pl_TtoxQi77EfQ63H" async> </script>
+                        </form>
+                    </div>
                 </div>
                 <div class="footer-col">
-                    <h4>QUICK LINKS</h4>
+                    <h4><button type="button" class="footer-toggle" aria-expanded="false">QUICK LINKS <i class="fas fa-chevron-down"></i></button></h4>
                     <div class="footer-links">
                         <a href="index.html">Home</a>
                         <a href="index.html#about">About Us</a>
                         <a href="index.html#services">Services</a>
-                        <a href="pricing.html">Pricing</a>
+                        <a href="https://rsatechsoftware.com/pricing.html">Pricing</a>
                         <a href="index.html#portfolio">Portfolio</a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>CONTACT</h4>
+                    <h4><button type="button" class="footer-toggle" aria-expanded="false">CONTACT <i class="fas fa-chevron-down"></i></button></h4>
                     <div class="footer-links">
                         <div>88/10 U-Block, Shakarpur Laxmi Nagar, New Delhi, 110092</div>
                         <div>info@rsatechsoftware.com</div>
@@ -1515,6 +1659,20 @@
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
+    </script>
+    <script>
+        // ===== Footer toggles (mobile only) =====
+        (function () {
+            const mq = window.matchMedia('(max-width: 767px)');
+            document.querySelectorAll('.footer-toggle').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (!mq.matches) return;
+                    const col = btn.closest('.footer-col');
+                    const open = col.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+            });
+        })();
     </script>
 </body>
 
