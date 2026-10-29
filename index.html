@@ -12,9 +12,9 @@
     <meta property="og:title" content="RSA Tech Software — Your Complete Digital Growth Partner">
     <meta property="og:description"
         content="From websites and apps to Google & Meta Ads, SEO and content — we build digital experiences that convert. Get a free quote in minutes.">
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="shortcut icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" type="image/jpg" href="rsatech-logo.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="rsatech-logo.jpg">
+    <link rel="apple-touch-icon" href="rsatech-logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
@@ -205,6 +205,26 @@
             border-color: var(--yellow);
             color: var(--yellow);
             background: transparent;
+        }
+
+        /* Razorpay Payment Button wrapper */
+        .rzp-pay-form {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .rzp-pay-form .razorpay-payment-button {
+            font-family: 'Inter', sans-serif !important;
+            cursor: pointer;
+        }
+
+        @media (max-width: 639px) {
+            .rzp-pay-form {
+                transform: scale(0.85);
+                transform-origin: right center;
+            }
         }
 
         .btn-pay-now:hover {
@@ -1726,8 +1746,10 @@
                 <a href="#testimonials" class="nav-link">Testimonials</a>
             </nav>
             <div class="header-actions">
-                <a id="pay-now-link" href="https://rzp.io/rzp/aMeIJVF" target="_blank" rel="noopener"
-                    class="btn-pay-now"><span>Pay Now</span></a>
+                <form class="rzp-pay-form">
+                    <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                        data-payment_button_id="pl_TtoxQi77EfQ63H" async> </script>
+                </form>
                 <button class="btn-quote" onclick="openModal()">Get Quote</button>
             </div>
         </div>
