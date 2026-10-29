@@ -1847,6 +1847,16 @@
                 display: none;
             }
         }
+        /* Tagline: laptop/desktop only */
+        .footer-tagline {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .footer-tagline {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -2375,6 +2385,8 @@
                         </div>
                         <!-- <div class="name heading-font">RSA Tech Software</div> -->
                     </div>
+                    <p class="footer-tagline">Your Trusted IT &amp; Digital Marketing Agency in Delhi | Expert in Website Development, App
+                        Development, Meta Ads, Google Ads, SEO &amp; Growth Solutions</p>
                     <div class="footer-socials">
                         <a href="https://www.linkedin.com/company/rsatechsoftware/" target="_blank" rel="noopener"
                             aria-label="RSA Tech Software on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
